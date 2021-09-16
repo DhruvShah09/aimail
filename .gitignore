@@ -12,4 +12,4 @@
 *.out
 
 #Keys and USRPASS
-secure/
+secure/environment.go
