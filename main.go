@@ -42,24 +42,3 @@ func getPoem(x string) string {
 	}
 	return resp.Choices[0].Text
 }
-
-/*
-func generatePrompt() {
-	a := []string{"Write a poem about the weather on a day with ", "% humidity, a high of ", " F, a low of 82 ", ", and rain chance of ", "%:"}
-
-}
-*/
-/*
-func relData(r *http.Response) []string {
-	reader := json.NewDecoder(r.Body).Decode(target)
-}
-func getWeather(city string) {
-	resp, err := http.Get("http://api.openweathermap.org/data/2.5/weather?q=Atlanta&units=imperial&appid=")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer resp.Body.Close()
-	data := relData(resp)
-
-}
-*/
