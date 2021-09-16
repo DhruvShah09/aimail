@@ -4,7 +4,7 @@ import (
 	"os"
 )
 
-func SecureEnvironment() {
+func InitSecureEnvironment() {
 	os.Setenv("OPENAI_KEY", "")
 	os.Setenv("EMAIL_USER", "")
 	os.Setenv("EMAIL_PWD", "")

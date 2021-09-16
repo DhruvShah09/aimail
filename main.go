@@ -23,7 +23,7 @@ type WeData struct {
 }
 
 func main() {
-	secure.SecureEnvironment()
+	secure.InitSecureEnvironment()
 	x := "Write a poem:"
 	response := getPoem(x)
 	cdn.SendEmail(response)
