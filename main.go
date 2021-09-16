@@ -54,7 +54,7 @@ func relData(r *http.Response) []string {
 	reader := json.NewDecoder(r.Body).Decode(target)
 }
 func getWeather(city string) {
-	resp, err := http.Get("http://api.openweathermap.org/data/2.5/weather?q=Atlanta&units=imperial&appid=921214e3238613cdd481cd104a3ec643")
+	resp, err := http.Get("http://api.openweathermap.org/data/2.5/weather?q=Atlanta&units=imperial&appid=")
 	if err != nil {
 		log.Fatal(err)
 	}
