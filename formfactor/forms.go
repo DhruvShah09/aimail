@@ -10,13 +10,13 @@ func formatHTMLBreaks(z string) string {
 	return strings.Replace(z, "\n", "<br>", -1)
 }
 func ConstructEmail(x string) string {
-	htfirst, err := ioutil.ReadFile("index1.txt")
+	htfirst, err := ioutil.ReadFile("formfactor/index1.txt")
 	if err != nil {
 		fmt.Println(err)
 		return "Error Parsing HTML - PT1"
 	}
 	partOne := string(htfirst)
-	htsecond, err2 := ioutil.ReadFile("index2.txt")
+	htsecond, err2 := ioutil.ReadFile("formfactor/index2.txt")
 	if err != nil {
 		fmt.Println(err2)
 		return "Error Parsing - HTML - PT2"
