@@ -1,12 +1,28 @@
 package cdn
 
 import (
+	"context"
 	"fmt"
 	"net/smtp"
 	"os"
 
 	"github.com/dhruvshah/go_crash_course/aimail/formfactor"
+	gogpt "github.com/sashabaranov/go-gpt3" //points to absolute path of GPT3 bindings, Change for distinct development environments
 )
+
+func GetPoem(x string) string {
+	c := gogpt.NewClient(os.Getenv("OPENAI_KEY"))
+	ctx := context.Background()
+	req := gogpt.CompletionRequest{
+		MaxTokens: 1024,
+		Prompt:    x,
+	}
+	resp, err := c.CreateCompletion(ctx, "davinci-instruct-beta", req)
+	if err != nil {
+		return "Failed to gather text/body of email"
+	}
+	return resp.Choices[0].Text
+}
 
 func SendEmail(z string) {
 	from := os.Getenv("EMAIL_USER")
