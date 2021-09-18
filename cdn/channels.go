@@ -53,5 +53,5 @@ func SendEmail(z string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("Email Sent Successfully!")
+	fmt.Println("Email Sent Successfully to the emails!")
 }
