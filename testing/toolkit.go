@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func writeResponseToFile(z string) {
+func WriteResponseToFile(z string) {
 	f, err := os.Create("data.txt")
 
 	if err != nil {
