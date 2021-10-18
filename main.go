@@ -10,19 +10,22 @@ import (
 
 	"fmt"
 
+	"github.com/dhruvshah/go_crash_course/aimail/cdn"
 	"github.com/dhruvshah/go_crash_course/aimail/secure" //secure init
 	"github.com/dhruvshah/go_crash_course/aimail/weather"
 )
 
 func main() {
 	secure.InitSecureEnvironment()
-	//x := "Write a poem:"
-	//response := cdn.GetPoem(x)
-	//cdn.SendEmail(response)
-	location := []string{"33.44", "-94.04"}
-	if weather.GetWeather(location) {
-		fmt.Println("Retrieved Weather Data")
+	location := []string{"20.44", "-94.04"}
+	rec, prompt := weather.GetWeather(location)
+	if rec {
+		fmt.Println("Recieved Weather Data!")
+		fmt.Println("The prompt is: " + prompt)
 	} else {
-		fmt.Println("Error collecting weather data")
+		fmt.Println(prompt)
 	}
+	response := cdn.GetPoem(prompt)
+	cdn.SendEmail(response)
+
 }
