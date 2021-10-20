@@ -17,7 +17,7 @@ import (
 
 func main() {
 	secure.InitSecureEnvironment()
-	location := []string{"20.44", "-94.04"}
+	location := []string{"33.75", "-84.38"}
 	rec, prompt := weather.GetWeather(location)
 	if rec {
 		fmt.Println("Recieved Weather Data!")

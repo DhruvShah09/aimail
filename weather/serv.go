@@ -74,9 +74,10 @@ func GetWeather(coords []string) (bool, string) {
 		}
 		//Prompt Generation
 		fmt.Println(result.Daily[0].Pop)
-		a := []string{"Write a poem about the weather on a day with ", "% humidity, a high of ", " F, a low of ", " F, and a rain chance of ", "%"}
-		prompt := a[0] + fmt.Sprintf("%d", result.Daily[0].Humidity) + a[1] + fmt.Sprintf("%g", result.Daily[0].Temp.Max) + a[2] + fmt.Sprintf("%g", result.Daily[0].Temp.Min) + a[3] + fmt.Sprintf("%g", result.Daily[0].Pop) + a[4]
-		return true, prompt
+		fmt.Println(result.Daily[0].Clouds)
+		b := []string{"Write a poem about the weather on a day with a high of ", " degrees Fahrenheit, a low of ", " degrees Fahrenheit, ", "% humidity, ", "and a rain chance of ", "%"}
+		prompt_z := b[0] + fmt.Sprintf("%g", result.Daily[0].Temp.Max) + b[1] + fmt.Sprintf("%g", result.Daily[0].Temp.Min) + b[2] + fmt.Sprintf("%d", result.Daily[0].Humidity) + b[3] + b[4] + fmt.Sprintf("%g", result.Daily[0].Pop*100) + b[5]
+		return true, prompt_z
 	} else {
 		return false, "Error recieving weather data"
 	}
