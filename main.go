@@ -17,7 +17,7 @@ import (
 
 func main() {
 	secure.InitSecureEnvironment()
-	location := []string{"33.75", "-84.38"}
+	location := weather.GetLoc("Atlanta")
 	rec, prompt := weather.GetWeather(location)
 	if rec {
 		fmt.Println("Recieved Weather Data!")
@@ -27,5 +27,4 @@ func main() {
 	}
 	response := cdn.GetPoem(prompt)
 	cdn.SendEmail(response)
-
 }
