@@ -79,7 +79,7 @@ func GetWeather(coords []float64) (bool, string) {
 		prompt_z := b[0] + fmt.Sprintf("%g", result.Daily[0].Temp.Max) + b[1] + fmt.Sprintf("%g", result.Daily[0].Temp.Min) + b[2] + fmt.Sprintf("%d", result.Daily[0].Humidity) + b[3] + b[4] + fmt.Sprintf("%g", result.Daily[0].Pop*100) + b[5]
 		return true, prompt_z
 	} else {
-		return false, "Error recieving weather data"
+		return false, "Network Error"
 	}
 
 }
@@ -137,6 +137,7 @@ func GetLoc(city string) []float64 {
 		coords := []float64{geos[0].Lat, geos[0].Lon}
 		return coords
 	}
+	//temp fix
 	broken := GetLoc("Atlanta")
 	return broken
 }

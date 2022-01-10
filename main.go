@@ -6,7 +6,7 @@ import (
 
 	//"net/http"
 
-	//Absolute path of development environment packges, refactor for production
+	//Absolute path of devops packges, refactoring necessary for production
 
 	"fmt"
 
@@ -17,7 +17,8 @@ import (
 
 func main() {
 	secure.InitSecureEnvironment()
-	location := weather.GetLoc("Atlanta")
+	locInput := "Orlando"
+	location := weather.GetLoc(locInput)
 	rec, prompt := weather.GetWeather(location)
 	if rec {
 		fmt.Println("Recieved Weather Data!")
